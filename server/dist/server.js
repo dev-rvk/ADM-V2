@@ -13,33 +13,33 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const multer_1 = __importDefault(require("multer"));
-const path_1 = __importDefault(require("path"));
-const fs_1 = __importDefault(require("fs"));
-const ghidraDecompile_1 = require("./utils/decompile/ghidraDecompile");
+const getRootPath_1 = require("./utils/getRootPath");
+const execCommand_1 = require("./utils/execCommand");
 const PORT = 9000;
 const app = (0, express_1.default)();
 app.get('/', (req, res) => {
     res.json({ version: "0.0.1" });
 });
-const upload = (0, multer_1.default)({ dest: "uploads/" });
-app.post('/decompile/ghidra', upload.single('file'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const file = req.file;
-    if (!file) {
-        return res.status(400).send("No file uploaded.");
+app.get('/decompile_jadx', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const uploadsPath = (0, getRootPath_1.getRootPath)('workers/jadx_decompile/uploads');
+    const outputPath = (0, getRootPath_1.getRootPath)('workers/jadx_decompile/output');
+    console.log(uploadsPath);
+    const command = `docker run -v ${uploadsPath}:/app/uploads -v ${outputPath}:/app/output jadx-decompile test.apk`;
+    const result = yield (0, execCommand_1.execCommand)(command);
+    if (!result.success) {
+        return res.status(500).send(result.message);
     }
-    if (path_1.default.extname(file.originalname) !== ".so") {
-        fs_1.default.unlinkSync(file.path); // Remove the file
-        return res.status(400).send("Filetype not valid");
+    res.send(result.message);
+}));
+app.get('/decompile_so', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const uploadsPath = (0, getRootPath_1.getRootPath)('workers/so_decompiler/uploads');
+    const outputPath = (0, getRootPath_1.getRootPath)('workers/so_decompiler/output');
+    const command = `docker run -v ${uploadsPath}:/decompile/uploads -v ${outputPath}:/decompile/output decompiler decompile /decompile/uploads/libnativehello-lib.so /decompile/output`;
+    const result = yield (0, execCommand_1.execCommand)(command);
+    if (!result.success) {
+        return res.status(500).send(result.message);
     }
-    try {
-        const decompiledOutput = yield (0, ghidraDecompile_1.decompileWithGhidra)(file.path, file.originalname);
-        res.send(decompiledOutput);
-    }
-    catch (error) {
-        console.error(error);
-        res.status(500).send(`Error during decompilation: ${error}`);
-    }
+    res.send(result.message);
 }));
 app.listen(PORT, () => {
     console.log(`Server Running on http://localhost:${PORT}`);
