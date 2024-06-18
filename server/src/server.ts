@@ -1,9 +1,6 @@
 import express from "express"
-import { exec } from 'child_process';
 import { getRootPath } from "./utils/getRootPath";
 import { execCommand } from "./utils/execCommand";
-import multer from "multer";
-import fs from "fs";
 
 
 const PORT=9000
