@@ -1,4 +1,20 @@
 // utils/execCommand.ts
+
+/* 
+This function executes any given command in the terminal and returns a promise that resolves 
+with the result of the command execution.
+Parameters:
+-----------
+- command: string - The command to be executed in the terminal.
+
+Returns:
+-----------
+- Promise<ExecResult> - A promise that resolves with an object containing:
+  - success: boolean - Indicates if the command was successful.
+  - message: string - A message describing the result.
+  - output: string - The standard output or error of the executed command.
+*/
+
 import { exec } from 'child_process';
 
 interface ExecResult {
