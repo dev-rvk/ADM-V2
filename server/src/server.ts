@@ -58,6 +58,13 @@ app.post('/decompile_jadx', async (req, res) => {
 
 app.post('/decompile_so', async (req, res) => {
 
+  /*
+  Accepted Response:
+  {
+    'sofile': uploaded so file,
+    'selections': ['angr', 'ghidra'] or ['angr']
+  }
+   */
   console.log(req.body)
   const uploadsPath = getRootPath('workers/so_decompiler/uploads');
   const outputPath = getRootPath('workers/so_decompiler/output');
