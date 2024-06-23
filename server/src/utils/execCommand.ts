@@ -41,7 +41,7 @@ export function execCommand(command: string): Promise<ExecResult> {
         console.error(`Command stderr: ${stderr}`);
         return resolve({
           success: true,
-          message: "Check errors during decompilation",
+          message: "Check WARNINGS during decompilation",
           output: stderr,
         });
       }
