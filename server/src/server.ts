@@ -1,6 +1,7 @@
 import express from "express"
 import { getRootPath } from "./utils/getRootPath";
 import { execCommand } from "./utils/execCommand";
+import { readNestedDir } from './utils/readNestedDir';
 import multer from "multer";
 import path from 'path';
 import fs from 'fs';
@@ -9,6 +10,7 @@ import cors from 'cors';
 const PORT=9000
 const app = express()
 app.use(cors())
+
 
 function getMulterUpload(destination: string) {
   const storage = multer.diskStorage({
@@ -48,8 +50,25 @@ app.post('/decompile_jadx', async (req, res) => {
     const command = `docker run -v ${uploadsPath}:/app/uploads -v ${outputPath}:/app/output jadx-decompile ${apkFile.filename}`;
 
     const result = await execCommand(command);
+    
+    if (!result.success) {
+      return res.status(500).send(result.message);
+    }
 
-    // TODO: If the command failed, send files to the frontend
+    const apkName = apkFile.filename.replace('.apk', '')
+    const decompDir = path.join(outputPath, apkName);
+
+    // Read the output directory to get the list of generated files
+    const files = readNestedDir(decompDir, outputPath)
+
+    // Generate URLs for the generated files
+    const fileUrls = files.map(file => ({
+        filename: path.basename(file),
+        url: `http://localhost:${PORT}/static/apk/${file}`
+    }));
+
+    res.json({ files: fileUrls });
+    
 
   })
     
@@ -65,7 +84,6 @@ app.post('/decompile_so', async (req, res) => {
     'selections': ['angr', 'ghidra'] or ['angr']
   }
    */
-  console.log(req.body)
   const uploadsPath = getRootPath('workers/so_decompiler/uploads');
   const outputPath = getRootPath('workers/so_decompiler/output');
 
@@ -104,13 +122,42 @@ app.post('/decompile_so', async (req, res) => {
           return res.status(500).send(result.message);
       }
 
-      // TODO: send the generated file from the outputPath to the frontend
+      // Read the output directory to get the list of generated files
+      const files = fs.readdirSync(outputPath);
 
-      // dummy response
-      res.send(result.message);
+      // Generate URLs for the generated files
+      const fileUrls = files.map(file => ({
+          filename: file,
+          url: `http://localhost:${PORT}/static/so/${file}`
+      }));
+
+      res.json({ files: fileUrls });
+
+    // Sample Response
+    //   {
+    //     "files": [
+    //         {
+    //             "filename": "out_angr.c",
+    //             "url": "http://localhost:9000/static/so/out_angr.c"
+    //         },
+    //         {
+    //             "filename": "out_ghidra.c",
+    //             "url": "http://localhost:9000/static/so/out_ghidra.c"
+    //         },
+    //         {
+    //             "filename": "out_ghidra.h",
+    //             "url": "http://localhost:9000/static/so/out_ghidra.h"
+    //         }
+    //     ]
+    // }
   })
 })
 
+
+
+// Static Resource Serving
+app.use("/static/so", express.static(getRootPath('workers/so_decompiler/output')))
+app.use("/static/apk", express.static(getRootPath('workers/jadx_decompile/output')))
 
 
 app.listen(PORT, () => {
