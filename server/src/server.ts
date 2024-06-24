@@ -64,6 +64,7 @@ app.post('/decompile_jadx', async (req, res) => {
     // Generate URLs for the generated files
     const fileUrls = files.map(file => ({
         filename: path.basename(file),
+        path: file,
         url: `http://localhost:${PORT}/static/apk/${file}`
     }));
 
