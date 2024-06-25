@@ -70,7 +70,20 @@ app.post('/decompile_jadx', async (req, res) => {
 
     res.json({ files: fileUrls });
     
-
+    // {
+    //   "files": [
+    //       {
+    //           "filename": "AndroidManifest.xml",
+    //           "path": "test/resources/AndroidManifest.xml",
+    //           "url": "http://localhost:9000/static/apk/test/resources/AndroidManifest.xml"
+    //       },
+    //       {
+    //         "filename": "drawables.xml",
+    //         "path": "test/resources/res/values-ldrtl-xxxhdpi/drawables.xml",
+    //         "url": "http://localhost:9000/static/apk/test/resources/res/values-ldrtl-xxxhdpi/drawables.xml"
+    //     }
+    //   ]
+    // }
   })
     
 });
