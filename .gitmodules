@@ -4,3 +4,6 @@
 [submodule "decompilation-workers/so_decompiler"]
 	path = decompilation-workers/so_decompiler
 	url = https://github.com/dev-rvk/so_decompiler.git
+[submodule "client"]
+	path = client
+	url = https://github.com/Owaiz13/ADM-V2-Frontend.git
