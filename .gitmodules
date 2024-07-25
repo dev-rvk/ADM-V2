@@ -7,3 +7,6 @@
 [submodule "client"]
 	path = client
 	url = https://github.com/Owaiz13/ADM-V2-Frontend.git
+[submodule "emulator/adm-emulator"]
+	path = emulator/adm-emulator
+	url = https://github.com/dev-rvk/adm-emulator.git
