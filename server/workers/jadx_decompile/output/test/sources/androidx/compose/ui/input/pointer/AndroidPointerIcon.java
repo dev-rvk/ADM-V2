@@ -38,3 +38,14 @@ public final class AndroidPointerIcon implements PointerIcon {
         return "AndroidPointerIcon(type=" + this.type + ')';
     }
 }
+n, ((AndroidPointerIcon) other).pointerIcon);
+    }
+
+    public int hashCode() {
+        return this.pointerIcon.hashCode();
+    }
+
+    public String toString() {
+        return "AndroidPointerIcon(pointerIcon=" + this.pointerIcon + ')';
+    }
+}

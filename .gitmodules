@@ -1,0 +1,6 @@
+[submodule "decompilation-workers/jadx_decompile"]
+	path = decompilation-workers/jadx_decompile
+	url = https://github.com/dev-rvk/jadx_decompile.git
+[submodule "decompilation-workers/so_decompiler"]
+	path = decompilation-workers/so_decompiler
+	url = https://github.com/dev-rvk/so_decompiler.git

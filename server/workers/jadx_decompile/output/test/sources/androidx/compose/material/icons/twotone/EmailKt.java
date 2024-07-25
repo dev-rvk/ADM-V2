@@ -1,8 +1,18 @@
 package androidx.compose.material.icons.twotone;
 
+import androidx.compose.material.icons.Icons;
+import androidx.compose.ui.graphics.Brush;
+import androidx.compose.ui.graphics.Color;
+import androidx.compose.ui.graphics.SolidColor;
+import androidx.compose.ui.graphics.StrokeCap;
+import androidx.compose.ui.graphics.StrokeJoin;
 import androidx.compose.ui.graphics.vector.ImageVector;
+import androidx.compose.ui.graphics.vector.PathBuilder;
+import androidx.compose.ui.graphics.vector.VectorKt;
+import androidx.compose.ui.unit.Dp;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import kotlin.Metadata;
+import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: Email.kt */
 @Metadata(d1 = {"\u0000\u0010\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\"\u0010\u0010\u0000\u001a\u0004\u0018\u00010\u0001X\u0082\u000e¢\u0006\u0002\n\u0000\"\u0015\u0010\u0002\u001a\u00020\u0001*\u00020\u00038F¢\u0006\u0006\u001a\u0004\b\u0004\u0010\u0005¨\u0006\u0006"}, d2 = {"_email", "Landroidx/compose/ui/graphics/vector/ImageVector;", "Email", "Landroidx/compose/material/icons/Icons$TwoTone;", "getEmail", "(Landroidx/compose/material/icons/Icons$TwoTone;)Landroidx/compose/ui/graphics/vector/ImageVector;", "material-icons-core_release"}, k = 2, mv = {1, 8, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
@@ -10,29 +20,62 @@ import kotlin.Metadata;
 public final class EmailKt {
     private static ImageVector _email;
 
-    /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
-        jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: androidx.compose.ui.graphics.vector.ImageVector.Builder.addPath-oIyEayM$default(androidx.compose.ui.graphics.vector.ImageVector$Builder, java.util.List, int, java.lang.String, androidx.compose.ui.graphics.Brush, float, androidx.compose.ui.graphics.Brush, float, float, int, int, float, float, float, float, int, java.lang.Object):androidx.compose.ui.graphics.vector.ImageVector$Builder
-        	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:74)
-        	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:49)
-        Caused by: java.util.ConcurrentModificationException
-        	at java.base/java.util.ArrayList.removeIf(ArrayList.java:1768)
-        	at java.base/java.util.ArrayList.removeIf(ArrayList.java:1743)
-        	at jadx.core.dex.instructions.args.SSAVar.removeUse(SSAVar.java:140)
-        	at jadx.core.dex.instructions.args.SSAVar.use(SSAVar.java:133)
-        	at jadx.core.dex.nodes.InsnNode.rebindArgs(InsnNode.java:489)
-        	at jadx.core.dex.instructions.mods.TernaryInsn.rebindArgs(TernaryInsn.java:92)
-        	at jadx.core.dex.nodes.InsnNode.rebindArgs(InsnNode.java:492)
-        	at jadx.core.utils.BlockUtils.replaceInsn(BlockUtils.java:1109)
-        	at jadx.core.utils.BlockUtils.replaceInsn(BlockUtils.java:1118)
-        	at jadx.core.dex.visitors.InlineMethods.inlineMethod(InlineMethods.java:113)
-        	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:72)
-        	... 1 more
-        */
-    public static final androidx.compose.ui.graphics.vector.ImageVector getEmail(androidx.compose.material.icons.Icons.TwoTone r41) {
-        /*
-            Method dump skipped, instructions count: 504
-            To view this dump add '--comments-level debug' option
-        */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material.icons.twotone.EmailKt.getEmail(androidx.compose.material.icons.Icons$TwoTone):androidx.compose.ui.graphics.vector.ImageVector");
+    public static final ImageVector getEmail(Icons.TwoTone $this$Email) {
+        ImageVector.Builder m3574addPathoIyEayM;
+        Intrinsics.checkNotNullParameter($this$Email, "<this>");
+        if (_email != null) {
+            ImageVector imageVector = _email;
+            Intrinsics.checkNotNull(imageVector);
+            return imageVector;
+        }
+        ImageVector.Builder $this$_get_Email__u24lambda_u242 = new ImageVector.Builder("TwoTone.Email", Dp.m5218constructorimpl(24.0f), Dp.m5218constructorimpl(24.0f), 24.0f, 24.0f, 0L, 0, false, 224, null);
+        int pathFillType$iv = VectorKt.getDefaultFillType();
+        Brush fill$iv$iv = new SolidColor(Color.INSTANCE.m2975getBlack0d7_KjU(), null);
+        int strokeLineCap$iv$iv = StrokeCap.INSTANCE.m3295getButtKaPHkGw();
+        int strokeLineJoin$iv$iv = StrokeJoin.INSTANCE.m3305getBevelLxFBmk8();
+        PathBuilder $this$PathData_u24lambda_u240$iv$iv$iv = new PathBuilder();
+        $this$PathData_u24lambda_u240$iv$iv$iv.moveTo(20.0f, 8.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv.lineToRelative(-8.0f, 5.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv.lineToRelative(-8.0f, -5.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv.verticalLineToRelative(10.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv.horizontalLineToRelative(16.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv.close();
+        $this$PathData_u24lambda_u240$iv$iv$iv.moveTo(20.0f, 6.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv.lineTo(4.0f, 6.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv.lineToRelative(8.0f, 4.99f);
+        $this$PathData_u24lambda_u240$iv$iv$iv.close();
+        $this$_get_Email__u24lambda_u242.m3574addPathoIyEayM($this$PathData_u24lambda_u240$iv$iv$iv.getNodes(), (r30 & 2) != 0 ? VectorKt.getDefaultFillType() : pathFillType$iv, (r30 & 4) != 0 ? "" : "", (r30 & 8) != 0 ? null : fill$iv$iv, (r30 & 16) != 0 ? 1.0f : 0.3f, (r30 & 32) == 0 ? null : null, (r30 & 64) != 0 ? 1.0f : 0.3f, (r30 & 128) != 0 ? 0.0f : 1.0f, (r30 & 256) != 0 ? VectorKt.getDefaultStrokeLineCap() : strokeLineCap$iv$iv, (r30 & 512) != 0 ? VectorKt.getDefaultStrokeLineJoin() : strokeLineJoin$iv$iv, (r30 & 1024) != 0 ? 4.0f : 1.0f, (r30 & 2048) != 0 ? 0.0f : 0.0f, (r30 & 4096) == 0 ? 0.0f : 1.0f, (r30 & 8192) == 0 ? 0.0f : 0.0f);
+        int pathFillType$iv2 = VectorKt.getDefaultFillType();
+        Brush fill$iv$iv2 = new SolidColor(Color.INSTANCE.m2975getBlack0d7_KjU(), null);
+        int strokeLineCap$iv$iv2 = StrokeCap.INSTANCE.m3295getButtKaPHkGw();
+        int strokeLineJoin$iv$iv2 = StrokeJoin.INSTANCE.m3305getBevelLxFBmk8();
+        PathBuilder $this$PathData_u24lambda_u240$iv$iv$iv2 = new PathBuilder();
+        $this$PathData_u24lambda_u240$iv$iv$iv2.moveTo(4.0f, 20.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.horizontalLineToRelative(16.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.curveToRelative(1.1f, 0.0f, 2.0f, -0.9f, 2.0f, -2.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.verticalLineTo(6.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.curveToRelative(0.0f, -1.1f, -0.9f, -2.0f, -2.0f, -2.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.horizontalLineTo(4.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.curveToRelative(-1.1f, 0.0f, -2.0f, 0.9f, -2.0f, 2.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.verticalLineToRelative(12.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.curveToRelative(0.0f, 1.1f, 0.9f, 2.0f, 2.0f, 2.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.close();
+        $this$PathData_u24lambda_u240$iv$iv$iv2.moveTo(20.0f, 6.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.lineToRelative(-8.0f, 4.99f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.lineTo(4.0f, 6.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.horizontalLineToRelative(16.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.close();
+        $this$PathData_u24lambda_u240$iv$iv$iv2.moveTo(4.0f, 8.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.lineToRelative(8.0f, 5.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.lineToRelative(8.0f, -5.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.verticalLineToRelative(10.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.horizontalLineTo(4.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.verticalLineTo(8.0f);
+        $this$PathData_u24lambda_u240$iv$iv$iv2.close();
+        m3574addPathoIyEayM = $this$_get_Email__u24lambda_u242.m3574addPathoIyEayM($this$PathData_u24lambda_u240$iv$iv$iv2.getNodes(), (r30 & 2) != 0 ? VectorKt.getDefaultFillType() : pathFillType$iv2, (r30 & 4) != 0 ? "" : "", (r30 & 8) != 0 ? null : fill$iv$iv2, (r30 & 16) != 0 ? 1.0f : 1.0f, (r30 & 32) == 0 ? null : null, (r30 & 64) != 0 ? 1.0f : 1.0f, (r30 & 128) != 0 ? 0.0f : 1.0f, (r30 & 256) != 0 ? VectorKt.getDefaultStrokeLineCap() : strokeLineCap$iv$iv2, (r30 & 512) != 0 ? VectorKt.getDefaultStrokeLineJoin() : strokeLineJoin$iv$iv2, (r30 & 1024) != 0 ? 4.0f : 1.0f, (r30 & 2048) != 0 ? 0.0f : 0.0f, (r30 & 4096) == 0 ? 0.0f : 1.0f, (r30 & 8192) == 0 ? 0.0f : 0.0f);
+        _email = m3574addPathoIyEayM.build();
+        ImageVector imageVector2 = _email;
+        Intrinsics.checkNotNull(imageVector2);
+        return imageVector2;
     }
 }

@@ -8,9 +8,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
-public class DateStrings {
+class DateStrings {
     private DateStrings() {
     }
 

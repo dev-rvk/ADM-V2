@@ -2,9 +2,8 @@ package androidx.constraintlayout.motion.utils;
 
 import java.util.Arrays;
 
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ArcCurveFit extends CurveFit {
+class ArcCurveFit extends CurveFit {
     public static final int ARC_START_FLIP = 3;
     public static final int ARC_START_HORIZONTAL = 2;
     public static final int ARC_START_LINEAR = 0;
