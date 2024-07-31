@@ -1,6 +1,1 @@
 .DS_Store
-workers/jadx_decompile/output/*
-workers/jadx_decompile/uploads/*
-
-workers/so_decompiler/output/*
-workers/so_decompiler/uploads/*

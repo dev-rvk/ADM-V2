@@ -119,7 +119,7 @@ app.post('/decompile_so', (req, res) => __awaiter(void 0, void 0, void 0, functi
             return res.status(400).send('Invalid selections.');
         }
         // Execute the commands to decompile SO file
-        const command = `docker run -v ${uploadsPath}:/decompile/uploads -v ${outputPath}:/decompile/output decompiler ${argument} /decompile/uploads/${soFile.filename} /decompile/output`;
+        const command = `docker run -v ${uploadsPath}:/decompile/uploads -v ${outputPath}:/decompile/output devrvk/so-decompiler ${argument} /decompile/uploads/${soFile.filename} /decompile/output`;
         const result = yield (0, execCommand_1.execCommand)(command);
         // if the command failed, return the error message
         if (!result.success) {

@@ -129,7 +129,7 @@ app.post('/decompile_so', async (req, res) => {
       }
 
       // Execute the commands to decompile SO file
-      const command = `docker run -v ${uploadsPath}:/decompile/uploads -v ${outputPath}:/decompile/output decompiler ${argument} /decompile/uploads/${soFile.filename} /decompile/output`;
+      const command = `docker run -v ${uploadsPath}:/decompile/uploads -v ${outputPath}:/decompile/output devrvk/so-decompiler ${argument} /decompile/uploads/${soFile.filename} /decompile/output`;
 
       const result = await execCommand(command);
 
